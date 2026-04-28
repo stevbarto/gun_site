@@ -1,0 +1,160 @@
+## GunCompare Project – Current Status (Django Prototype)
+
+### ✅ What I’ve Built So Far
+
+I have a working Django web app called **gun_site** with an app called **rifles**.
+
+Core functionality implemented:
+
+* Django project + app structure is set up correctly
+* Admin panel is working
+* I can manually add rifle data through `/admin`
+* Homepage (`/`) shows a list of rifles
+* Clicking a rifle goes to a **detail page**
+* I can select multiple rifles and use a **compare feature**
+
+---
+
+### 🧱 Current Project Structure
+
+```
+gun_site/
+├── manage.py
+├── gun_site/
+│   ├── settings.py
+│   ├── urls.py   ← includes rifles.urls
+│
+├── rifles/
+│   ├── models.py
+│   ├── admin.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── templates/
+│       └── rifles/
+│           ├── list.html
+│           ├── detail.html
+│           ├── compare.html
+```
+
+---
+
+### 🧠 Current Data Model
+
+Basic Rifle model:
+
+* manufacturer
+* model
+* caliber
+* action
+* weight_lbs
+* barrel_length_in
+* overall_length_in
+* twist_rate
+* msrp
+
+Data is being entered via Django admin.
+
+---
+
+### 🔗 Routing Setup
+
+Main URLs (`gun_site/urls.py`):
+
+```python
+path('', include('rifles.urls'))
+```
+
+App URLs (`rifles/urls.py`):
+
+* `/` → rifle list
+* `/rifle/<id>/` → detail page
+* `/compare/` → comparison page
+
+---
+
+### 🔍 Features Working
+
+#### 1. Rifle List Page
+
+* Displays all rifles in database
+* Each rifle links to detail page
+
+#### 2. Rifle Detail Page
+
+* Shows full specs for a single rifle
+
+#### 3. Compare Feature
+
+* Checkbox selection on list page
+* Submits to `/compare/?ids=1&ids=2`
+* Displays side-by-side comparison table
+
+---
+
+### ⚙️ Admin Functionality
+
+* Rifle model is registered in `admin.py`
+* Can:
+
+  * Add rifles
+  * Edit rifles
+  * Search/filter in admin
+
+Admin URL:
+
+```
+/admin
+```
+
+---
+
+### 🚧 What’s NOT Built Yet
+
+* Filtering (by caliber, weight, etc.)
+* Sorting
+* Clean UI/styling
+* Expanded dataset (currently small)
+* Flexible spec system (future scaling)
+
+---
+
+### 🎯 Immediate Next Steps
+
+1. Add 20–50 rifles via admin (critical)
+2. Implement filtering:
+
+   * caliber
+   * max weight
+   * manufacturer
+3. Improve comparison table UI
+4. Clean up list page layout
+
+---
+
+### 🧭 Key Principles to Stick To
+
+* Keep it simple (no auth, no APIs yet)
+* Use Django admin for all data entry
+* Don’t overbuild schema early
+* Focus on making the tool useful, not perfect
+
+---
+
+### 💡 Long-Term Direction
+
+* Expand dataset significantly
+* Add better filtering + sorting
+* Possibly move toward:
+
+  * flexible spec system
+  * multiple firearm types
+* Turn into a real comparison tool users would search for
+
+---
+
+### 🚀 Current Status
+
+The project is now a **working prototype with real functionality**.
+
+Next milestone:
+👉 Make it *useful enough* that I would actually use it to compare rifles.

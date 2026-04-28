@@ -1,0 +1,15 @@
+<h1>Rifles</h1>
+
+<form method="get" action="/compare/">
+  {% for rifle in rifles %}
+    <div>
+      <input type="checkbox" name="ids" value="{{ rifle.id }}">
+      <a href="/rifle/{{ rifle.id }}/">
+        {{ rifle.manufacturer }} {{ rifle.model }}
+      </a>
+      - {{ rifle.caliber }} - {{ rifle.weight_lbs }} lbs
+    </div>
+  {% endfor %}
+
+  <button type="submit">Compare</button>
+</form>

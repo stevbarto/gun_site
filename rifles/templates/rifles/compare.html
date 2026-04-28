@@ -1,0 +1,33 @@
+<h1>Compare Rifles</h1>
+
+<table border="1">
+  <tr>
+    <th>Spec</th>
+    {% for rifle in rifles %}
+      <th>{{ rifle.manufacturer }} {{ rifle.model }}</th>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    <td>Caliber</td>
+    {% for rifle in rifles %}
+      <td>{{ rifle.caliber }}</td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    <td>Weight</td>
+    {% for rifle in rifles %}
+      <td>{{ rifle.weight_lbs }} lbs</td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    <td>Barrel Length</td>
+    {% for rifle in rifles %}
+      <td>{{ rifle.barrel_length_in }} in</td>
+    {% endfor %}
+  </tr>
+</table>
+
+<a href="/">Back</a>
